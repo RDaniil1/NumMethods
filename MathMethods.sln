@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleIterations", "SimpleIterations.vcxproj", "{1FD1C7F8-0EB2-4CCC-A083-1A1F1075BD24}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathMethods", "MathMethods.vcxproj", "{1FD1C7F8-0EB2-4CCC-A083-1A1F1075BD24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

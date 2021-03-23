@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{1fd1c7f8-0eb2-4ccc-a083-1a1f1075bd24}</ProjectGuid>
-    <RootNamespace>SimpleIterations</RootNamespace>
+    <RootNamespace>MathMethods</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>MathMethods</ProjectName>
   </PropertyGroup>
