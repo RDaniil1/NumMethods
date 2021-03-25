@@ -52,5 +52,5 @@ void BisectionMethod::Bisection()
 		EquationForBisection(fxn, xn);
 	}
 	
-	std::cout << "Result for bisection is: " << std::fixed << xn << std::endl;
+	std::cout << "Result for bisection is: "  << xn << std::endl;
 }

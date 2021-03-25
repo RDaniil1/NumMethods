@@ -1,0 +1,2 @@
+C:\Users\DEagl\OneDrive\Документы\GitHub\NumMethods\x64\Debug\MathMethods.exe
+C:\Users\DEagl\OneDrive\Документы\GitHub\NumMethods\x64\Debug\MathMethods.pdb
