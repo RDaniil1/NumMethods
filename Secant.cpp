@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
+#include "CppConsoleTable.hpp"
 #include "Secant.h"
 SecantMethod::SecantMethod(int command, double x1, double x2)
 {
@@ -89,22 +91,49 @@ bool SecantMethod::ConditionIsExecuted(double a, double b)
 	else return false;
 }
 
-void SecantMethod::SecantAlgorithm(double a, double bn)
+void SecantMethod::SecantAlgorithm(double a, double bn, samilton::ConsoleTable &table)
 {
+	double n = 0;
 	double deltaB = DeltaB(a, bn);
+	double fa = SecantEquation(a);
+	double fbn = SecantEquation(bn);
+	AddRowInSecantTable(n, a, bn, fa, fbn, table);
 	while (fabs(deltaB) > e)
 	{
 		deltaB = DeltaB(a, bn);
 		bn -= deltaB;
+		n++;
+		fa = SecantEquation(a);
+		fbn = SecantEquation(bn);
+		AddRowInSecantTable(n, a, bn, fa, fbn, table);
 	}
-	std::cout << "Secant result is: " << bn << std::endl;
+}
+
+void DrawSecantTableHeader(samilton::ConsoleTable& table)
+{
+	std::vector <std::string> headers = { "n", "an", "bn", "fan", "fbn"};
+	table.addRow(headers);
+}
+
+void AddRowInSecantTable(double  n, double an, double bn, double fan, double fbn, samilton::ConsoleTable& table)
+{
+	std::vector <double> nums;
+	nums.push_back(n);
+	nums.push_back(an);
+	nums.push_back(bn);
+	nums.push_back(fan);
+	nums.push_back(fbn);
+	table.addRow(nums);
 }
 
 void SecantMethod::Secant()
 {
+	samilton::ConsoleTable table(1, 1, samilton::Alignment::centre);
 	double a, bn;
 	double x1FuncSign = SecantEquation(x1) * SecoDerivSec(x1);
 	double x2FuncSign = SecantEquation(x2) * SecoDerivSec(x2);
+	std::cout << "Secant method table: " << "\n";
+	DrawSecantTableHeader(table);
 	if (ConditionIsExecuted(x1, x2))
 	{
 		if (x1FuncSign > 0
@@ -112,7 +141,7 @@ void SecantMethod::Secant()
 		{
 			a = x1;
 			bn = x2;
-			SecantAlgorithm(a, bn);
+			SecantAlgorithm(a, bn, table);
 		}
 		else
 			if (x1FuncSign < 0
@@ -120,7 +149,8 @@ void SecantMethod::Secant()
 			{
 				a = x2;
 				bn = x1;
-				SecantAlgorithm(a, bn);
+				SecantAlgorithm(a, bn, table);
 			}
 	}
+	std::cout << table;
 }

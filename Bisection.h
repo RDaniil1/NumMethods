@@ -1,4 +1,6 @@
 #pragma once
+#include "CppConsoleTable.hpp"
+
 class BisectionMethod 
 {
 private:
@@ -13,3 +15,7 @@ public:
 	BisectionMethod(int command, double an, double bn);
 	void Bisection();
 };
+
+void DrawBisectionTableHeader(samilton::ConsoleTable& table);
+
+void AddRowInBisectionTable(double  n, double an, double bn, double xn, double fan, double fbn, double fxn, samilton::ConsoleTable& table);

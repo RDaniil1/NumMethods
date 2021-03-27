@@ -1,6 +1,8 @@
-#include "SimpleIterations.h"
-#include <cmath>
 #include <iostream>
+#include <cmath>
+#include <vector>
+#include "CppConsoleTable.hpp"
+#include "SimpleIterations.h"
 
 SimpleIterationsMethod::SimpleIterationsMethod(int command)
 {
@@ -28,17 +30,38 @@ double SimpleIterationsMethod::EquationForIteration(double xPrev)
 	return res;
 }
 
+void DrawSimpleIterTableHeader(samilton::ConsoleTable& table)
+{
+	std::vector <std::string> headers = { "n", "xPrev", "xNext" };
+	table.addRow(headers);
+}
+
+void AddRowInSimpleIterTable(double n, double xPrev, double xNext, samilton::ConsoleTable& table)
+{
+	std::vector <double> nums;
+	nums.push_back(n);
+	nums.push_back(xPrev);
+	nums.push_back(xNext);
+	table.addRow(nums);
+}
+
 void SimpleIterationsMethod::SimpleIterations()
 {
+	double n = 0;
+	samilton::ConsoleTable table(1, 1, samilton::Alignment::centre);
 	double xPrev = 0;
 	double xNext = EquationForIteration(xPrev);
-	double e = std::pow(10, -5);
 	double deltaX = fabs(xNext - xPrev);
+	std::cout << "Simple iterations table: " << "\n";
+	DrawSimpleIterTableHeader(table);
+	AddRowInSimpleIterTable(n, xPrev, xNext, table);
 	while (deltaX > e)
 	{
 		xPrev = xNext;
 		xNext = EquationForIteration(xPrev);
 		deltaX = fabs(xNext - xPrev);
+		n++;
+		AddRowInSimpleIterTable(n, xPrev, xNext, table);
 	}
-	std::cout << "Simple iterations result is: " << xNext << std::endl;
+	std::cout << table;
 }

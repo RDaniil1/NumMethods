@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
+#include "CppConsoleTable.hpp"
 #include "RegulaFalsi.h"
 
 RegulaFalsiMethod::RegulaFalsiMethod(int command, double a, double b)
@@ -37,8 +39,30 @@ double RegulaFalsiMethod::FindXn(double an, double bn)
 	return (an * fbn - bn * fan)/(fbn - fan);
 }
 
+void DrawFalsiTableHeader(samilton::ConsoleTable& table)
+{
+	std::vector <std::string> headers = { "n", "an", "bn", "xn", "fan", "fbn", "fxn", "bn - an" };
+	table.addRow(headers);
+}
+
+void AddRowInFalsiTable(double  n, double an, double bn, double xn, double fan, double fbn, double fxn, samilton::ConsoleTable& table)
+{
+	std::vector <double> nums;
+	nums.push_back(n);
+	nums.push_back(an);
+	nums.push_back(bn);
+	nums.push_back(xn);
+	nums.push_back(fan);
+	nums.push_back(fbn);
+	nums.push_back(fxn);
+	nums.push_back(bn - an);
+	table.addRow(nums);
+}
+
 void RegulaFalsiMethod::RegulaFalsi()
 {
+	double n = 0;
+	samilton::ConsoleTable table(1, 1, samilton::Alignment::centre);
 	fan = FalsiEquation(a);
 	fbn = FalsiEquation(b);
 	if (fan * fbn > 0)
@@ -47,6 +71,9 @@ void RegulaFalsiMethod::RegulaFalsi()
 	}
 	xn = FindXn(a, b);
 	fxn = FalsiEquation(xn);
+	std::cout << "Regula falsi method table: " << "\n";
+	DrawFalsiTableHeader(table);
+	AddRowInFalsiTable(n, a, b, xn, fan, fbn, fxn, table);
 	while (fabs(fxn) > e)
 	{
 		if (fan * fxn < 0)
@@ -59,6 +86,8 @@ void RegulaFalsiMethod::RegulaFalsi()
 		}
 		xn = FindXn(a, b);
 		fxn = FalsiEquation(xn);
+		n++;
+		AddRowInFalsiTable(n, a, b, xn, fan, fbn, fxn, table);
 	}
-	std::cout << "Regula falsi method result is: "<< std::fixed << xn << "\n";
+	std::cout << table;
 }

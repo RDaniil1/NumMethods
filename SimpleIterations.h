@@ -1,5 +1,7 @@
 #pragma once
 #include <cmath>
+#include "CppConsoleTable.hpp"
+
 class SimpleIterationsMethod
 {
 private:
@@ -10,3 +12,7 @@ public:
 	SimpleIterationsMethod(int command);
 	void SimpleIterations();
 };
+
+void DrawSimpleIterTableHeader(samilton::ConsoleTable& table);
+
+void AddRowInSimpleIterTable(double n, double xPrev, double xNext, samilton::ConsoleTable& table);

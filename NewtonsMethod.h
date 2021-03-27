@@ -1,4 +1,5 @@
 #pragma once
+#include "CppConsoleTable.hpp"
 class NewtonsMethod
 {
 private:
@@ -10,8 +11,12 @@ private:
 	double FirstDeriv(double xn);
 	double SecondDeriv(double xn);
 	double FindNextXn(double xn);
-	void NewtonAlgorithm(double ab, double e, double& xn);
+	void NewtonAlgorithm(double ab, double& xn, samilton::ConsoleTable& table);
 public:
 	NewtonsMethod(int command, double a, double b);
 	void Newton();
 };
+
+void AddRowInNewtonsTable(double  n, double xn, double f1xn, double fxn, samilton::ConsoleTable& table);
+
+void DrawNewtonsTableHeader(samilton::ConsoleTable& table);

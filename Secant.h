@@ -1,5 +1,7 @@
 #pragma once
 #include <cmath>
+#include "CppConsoleTable.hpp"
+
 class SecantMethod
 {
 private:
@@ -11,8 +13,12 @@ private:
 	double SecoDerivSec(double xn);
 	double DeltaB(double a, double bn);
 	bool ConditionIsExecuted(double a, double b);
-	void SecantAlgorithm(double a, double bn);
+	void SecantAlgorithm(double a, double bn, samilton::ConsoleTable& table);
 public:
 	SecantMethod(int command, double x1, double x2);
 	void Secant();
 };
+
+void DrawSecantTableHeader(samilton::ConsoleTable& table);
+
+void AddRowInSecantTable(double  n, double an, double bn, double fan, double fbn, samilton::ConsoleTable& table);

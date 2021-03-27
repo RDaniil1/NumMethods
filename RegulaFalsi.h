@@ -1,5 +1,7 @@
 #pragma once
 #include <cmath>
+#include "CppConsoleTable.hpp"
+
 class RegulaFalsiMethod
 {
 private:
@@ -13,3 +15,7 @@ public:
 	RegulaFalsiMethod(int command, double a, double b);
 	void RegulaFalsi();
 }; 
+
+void DrawFalsiTableHeader(samilton::ConsoleTable& table);
+
+void AddRowInFalsiTable(double  n, double an, double bn, double xn, double fan, double fbn, double fxn, samilton::ConsoleTable& table);
