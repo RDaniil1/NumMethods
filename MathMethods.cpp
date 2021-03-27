@@ -3,6 +3,7 @@
 #include "SimpleIterations.h"
 #include "NewtonsMethod.h"
 #include "Secant.h"
+#include "RegulaFalsi.h"
 
 int main()
 {
@@ -21,7 +22,7 @@ int main()
 	}
 	case 2:
 	{
-		BisectionMethod bisection(2, 0, 2);
+		BisectionMethod bisection(2, 0, 1);
 		bisection.Bisection();
 		SecantMethod secant(2, 0, 1);
 		secant.Secant();
@@ -29,7 +30,7 @@ int main()
 	}
 	case 3:
 	{
-		BisectionMethod bisection(3, 0, 2);
+		BisectionMethod bisection(3, 0, 1);
 		bisection.Bisection();
 		NewtonsMethod newton(3, 0, 1);
 		newton.Newton();
@@ -37,10 +38,10 @@ int main()
 	}
 	case 4:
 	{
-		BisectionMethod bisection(4, 0, 2);
+		BisectionMethod bisection(4, 0.5, 1);
 		bisection.Bisection();
-		SecantMethod secant(4, 0, 2);
-		secant.Secant();
+		RegulaFalsiMethod regulaFalsi(4, 0.5, 1);
+		regulaFalsi.RegulaFalsi();
 		break;
 	}
 	case 5:
@@ -63,8 +64,8 @@ int main()
 	{
 		SimpleIterationsMethod simpleIterations(7);
 		simpleIterations.SimpleIterations();
-		SecantMethod secant(7, 0.2, 1);
-		secant.Secant();
+		RegulaFalsiMethod regulaFalsi(7, 0.5, 1);
+		regulaFalsi.RegulaFalsi();
 		break;
 	}
 	case 8:
@@ -77,18 +78,18 @@ int main()
 	}
 	case 9:
 	{
-		NewtonsMethod newton(9, 0, 1.5);
+		NewtonsMethod newton(9, 0.5, 1.5);
 		newton.Newton();
-		SecantMethod secant(9, 0, 1.5);
-		secant.Secant();
+		RegulaFalsiMethod regulaFalsi(9, 0.5, 1.5);
+		regulaFalsi.RegulaFalsi();
 		break;
 	}
 	case 10:
 	{
 		SecantMethod secant(10, 0.5, 1.5);
 		secant.Secant();
-		SecantMethod secant2(10, 0.5, 1.5);
-		secant2.Secant();
+		RegulaFalsiMethod regulaFalsi(10, 0.5, 1.5);
+		regulaFalsi.RegulaFalsi();
 		break;
 	}
 	default:

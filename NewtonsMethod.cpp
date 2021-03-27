@@ -38,7 +38,7 @@ double NewtonsMethod::FirstDeriv(double xn)
 		res = 3 * std::pow(xn, 2) + 6 * xn;
 		break;
 	case 5:
-		res = 0.5 + (0.3 / std::pow(xn, 2));
+		res = 2 * xn;
 		break;
 	case 8:
 		res = 3 * std::pow(xn, 2) + 6 * xn;
@@ -59,7 +59,7 @@ double NewtonsMethod::SecondDeriv(double xn)
 		res = 6 * xn + 6;
 		break;
 	case 5:
-		res = xn;
+		res = 2;
 		break;
 	case 8:
 		res = 3 * xn + 6;
@@ -101,5 +101,5 @@ void NewtonsMethod::Newton()
 		NewtonAlgorithm(b, e, xn);
 	}
 	else return;
-	std::cout << "Newton's method result is: " << xn << std::endl;
+	std::cout << "Newton's method result is: " << std::fixed << xn << std::endl;
 }

@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cmath>
-#include "Bisection.h"
 #include <iomanip>
+#include "Bisection.h"
+
 
 BisectionMethod::BisectionMethod(int command, double an, double bn)
 {
@@ -52,5 +53,5 @@ void BisectionMethod::Bisection()
 		EquationForBisection(fxn, xn);
 	}
 	
-	std::cout << "Result for bisection is: "  << xn << std::endl;
+	std::cout << "Result for bisection is: "  << std::fixed << xn << std::endl;
 }

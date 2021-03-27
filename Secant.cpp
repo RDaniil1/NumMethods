@@ -16,20 +16,11 @@ double SecantMethod::SecantEquation(double xn)
 	case 2:
 		res = std::pow(xn, 3) - 4 * std::pow(xn, 2) + 2;
 		break;
-	case 4:
-		res = std::pow(xn, 3) + 3 * std::pow(xn , 2) - 1;
-		break;
 	case 6:
-		res = xn - 0.5 * xn - (0.5 * 0.7/xn);
-		break;
-	case 7:
-		res = xn - 0.5 * xn - (0.5 * 0.8 / xn);
+		res = xn - 0.5 * xn - (0.5 * 0.7 / xn);
 		break;
 	case 8:
 		res = std::pow(xn, 3) + 3 * std::pow(xn, 2) - 3;
-		break;
-	case 9:
-		res = std::pow(xn, 3) + std::pow(xn, 2) - 10 * xn + 8;
 		break;
 	case 10:
 		res = std::pow(xn, 3) - std::pow(xn, 2) - 4 * xn + 4;
@@ -46,20 +37,11 @@ double SecantMethod::FirstDerivSec(double xn)
 	case 2:
 		res = 3 * std::pow(xn, 2) - 8 * xn;
 		break;
-	case 4:
-		res = 3 * std::pow(xn, 2) + 6 * xn;
-		break;
 	case 6:
-		res = xn;
-		break;
-	case 7:
 		res = xn;
 		break;
 	case 8:
 		res = 3 * std::pow(xn, 2) + 6 * xn;
-		break;
-	case 9:
-		res = 3 * std::pow(xn, 2) + 2 * xn - 10;
 		break;
 	case 10:
 		res = 3 * std::pow(xn, 2) - 2 * xn - 4;
@@ -76,20 +58,11 @@ double SecantMethod::SecoDerivSec(double xn)
 	case 2:
 		res = 6 * xn - 8;
 		break;
-	case 4:
-		res = 6 * xn + 6;
-		break;
 	case 6:
-		res = 1;
-		break;
-	case 7:
 		res = 1;
 		break;
 	case 8:
 		res = 6 * xn + 6;
-		break;
-	case 9:
-		res = 6 * xn + 2;
 		break;
 	case 10:
 		res = 6 * xn - 2;

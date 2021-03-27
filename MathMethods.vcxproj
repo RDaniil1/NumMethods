@@ -143,12 +143,14 @@
     <ClCompile Include="Bisection.cpp" />
     <ClCompile Include="MathMethods.cpp" />
     <ClCompile Include="NewtonsMethod.cpp" />
+    <ClCompile Include="RegulaFalsi.cpp" />
     <ClCompile Include="Secant.cpp" />
     <ClCompile Include="SimpleIterations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bisection.h" />
     <ClInclude Include="NewtonsMethod.h" />
+    <ClInclude Include="RegulaFalsi.h" />
     <ClInclude Include="Secant.h" />
     <ClInclude Include="SimpleIterations.h" />
   </ItemGroup>
